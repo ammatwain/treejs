@@ -515,6 +515,9 @@ Tree.createUlEle = function() {
 Tree.createLiEle = function(node, closed) {
   const li = document.createElement('li');
   li.classList.add('treejs-node');
+  const info = document.createElement('span');
+  info.classList.add('treejs-info');
+  li.appendChild(info);
   if (closed) li.classList.add('treejs-node__close');
   if (node.children && node.children.length) {
     const switcher = document.createElement('span');

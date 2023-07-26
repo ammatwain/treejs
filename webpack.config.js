@@ -21,11 +21,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-            },
-            {
                 test: /\.less$/,
                 use: [
                     'style-loader',
@@ -33,10 +28,10 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [
-                                require('postcss-import'),
-                                require('autoprefixer'),
-                            ],
+//                            plugins: [
+//                                require('postcss-import'),
+//                                require('autoprefixer'),
+//                            ],
                         },
                     },
                     'less-loader',
@@ -54,12 +49,12 @@ module.exports = {
                 sourceMap: true,
                 uglifyOptions: {
                     compress: {
-                        warnings: false,
+//                        warnings: false,
                         comparisons: false,
                         drop_console: true,
                     },
                     mangle: {
-                        safari10: true,
+//                        safari10: true,
                     },
                     output: {
                         comments: false,
