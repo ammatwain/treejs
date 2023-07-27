@@ -517,10 +517,10 @@ Tree.createLiEle = function(node, closed, level) {
   const li = document.createElement('li');
   li.classList.add('treejs-node');
 
-  const info = document.createElement('span');
-  info.innerHTML="INFO";
-  info.classList.add('treejs-info');
-  li.appendChild(info);
+  const percent = document.createElement('span');
+  percent.innerHTML="50%";
+  percent.classList.add('treejs-percent');
+  li.appendChild(percent);
 
   const spacer = document.createElement('span');
   spacer.classList.add('treejs-spacer');
