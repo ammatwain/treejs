@@ -18,7 +18,8 @@
 
   .treejs-nodes {
     list-style: none;
-    padding-left: 20px;
+//    padding-left: 20px;
+    padding-left: 0px;
     overflow: hidden;
     transition: height 150ms ease-out, opacity 150ms ease-out;
   }
@@ -28,14 +29,26 @@
     overflow: hidden;
 
     &.treejs-placeholder {
-      padding-left: 20px;
+//      padding-left: 20px;
+      padding-left: 0px;
     }
   }
 
   .treejs-info {
     display: inline-block;
+    background-color:yellow;
     vertical-align: middle;
     width: 200px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 150ms ease-out;
+  }
+
+  .treejs-spacer {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0px;
     height: 20px;
     cursor: pointer;
     position: relative;

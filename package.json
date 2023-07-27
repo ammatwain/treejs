@@ -4,7 +4,7 @@
   "description": "a lightweight tree widget, compatible with originaljs/react/vue, 9.6kb size for tree.min.js&tree.min.css without gzip.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress"
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' webpack --progress && NODE_OPTIONS=''"
   },
   "browserslist": [
     ">1%",

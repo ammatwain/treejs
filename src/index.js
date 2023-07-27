@@ -182,18 +182,19 @@ Tree.prototype.render = function(treeNodes) {
   ele.appendChild(treeEle);
 };
 
-Tree.prototype.buildTree = function(nodes, depth) {
+Tree.prototype.buildTree = function(nodes, depth, level = 0) {
   const rootUlEle = Tree.createUlEle();
   if (nodes && nodes.length) {
     nodes.forEach(node => {
       const liEle = Tree.createLiEle(
         node,
-        depth === this.options.closeDepth - 1
+        depth === this.options.closeDepth - 1,
+        level
       );
       this.liElementsById[node.id] = liEle;
       let ulEle = null;
       if (node.children && node.children.length) {
-        ulEle = this.buildTree(node.children, depth + 1);
+        ulEle = this.buildTree(node.children, depth + 1, level + 1);
       }
       ulEle && liEle.appendChild(ulEle);
       rootUlEle.appendChild(liEle);
@@ -512,18 +513,29 @@ Tree.createUlEle = function() {
   return ul;
 };
 
-Tree.createLiEle = function(node, closed) {
+Tree.createLiEle = function(node, closed, level) {
   const li = document.createElement('li');
   li.classList.add('treejs-node');
+
   const info = document.createElement('span');
+  info.innerHTML="INFO";
   info.classList.add('treejs-info');
   li.appendChild(info);
+
+  const spacer = document.createElement('span');
+  spacer.classList.add('treejs-spacer');
+  li.appendChild(spacer);
+
+//  spacer.style.width = `${width + (level * 20)}px`;
+
   if (closed) li.classList.add('treejs-node__close');
   if (node.children && node.children.length) {
+    spacer.style.width = `${level * 20}px`;
     const switcher = document.createElement('span');
     switcher.classList.add('treejs-switcher');
     li.appendChild(switcher);
   } else {
+    spacer.style.width = `${(level+1) * 20}px`;
     li.classList.add('treejs-placeholder');
   }
   const checkbox = document.createElement('span');
