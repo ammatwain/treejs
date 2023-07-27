@@ -249,6 +249,7 @@ Tree.prototype.onItemClick = function(id) {
   }
   onChange && onChange.call(this);
   console.timeEnd('onItemClick');
+  console.log(this.values);
 };
 
 Tree.prototype.setValue = function(value) {
