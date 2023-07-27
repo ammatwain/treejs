@@ -210,8 +210,11 @@ Tree.prototype.bindEvent = function(ele) {
       const {target} = e;
       if (
         target.nodeName === 'SPAN' &&
-        (target.classList.contains('treejs-checkbox') ||
-          target.classList.contains('treejs-label'))
+        (
+          target.classList.contains('treejs-checkbox')
+          ||
+          target.classList.contains('treejs-label')
+        )
       ) {
         this.onItemClick(target.parentNode.nodeId);
       } else if (
@@ -221,7 +224,13 @@ Tree.prototype.bindEvent = function(ele) {
         this.onItemClick(target.nodeId);
       } else if (
         target.nodeName === 'SPAN' &&
-        target.classList.contains('treejs-switcher')
+        (
+          target.classList.contains('treejs-switcher')
+          ||
+          target.classList.contains('treejs-spacer')
+          ||
+          target.classList.contains('treejs-percent')
+        )
       ) {
         this.onSwitcherClick(target);
       }
